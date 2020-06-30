@@ -1,0 +1,17 @@
+<h2> Employee Form </h2>
+<% form_for @employee do |f| %>
+<%=f.fields_for :employees do |employee_field| %>
+<%=employee_field.collection_select(:company_id, Employee.all, :id, :name) %>
+<% end %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+

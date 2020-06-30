@@ -1,0 +1,17 @@
+<h2> Offices </h2>
+<ul> <% @company.offices.each do |office| %>
+    <li> <%=office.building.name  %>
+    <%=office.floor %>
+    <% end %> 
+    </li>
+</ul>
+<br>
+
+<%= render partial: 'employeeform' %>
+
+<h2> Employees </h2>
+
+<ul> <% @company.employees.each do |employee| %>
+    <li> <%=employee.name %>
+    <% end %>
+</ul>

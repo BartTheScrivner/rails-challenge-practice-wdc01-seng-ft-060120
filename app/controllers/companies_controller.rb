@@ -18,14 +18,13 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
     if @company.save
       params[:company][:offices_attributes].each do |indexk, val|
-        val[:offices].each do |floors|
-          floors.each do |floor|
-            if floor != ""
-            Office.create(company_id: @company.id, building_id: val[:id], floor: floor)
-            end
+        val[:offices].each do |floor|
+         
+          if floor != ""
+          Office.create(company_id: @company.id, building_id: val[:id], floor: floor)
+          end
           end 
-        end 
-      end 
+       end 
     end 
     redirect_to company_path(@company)
   end

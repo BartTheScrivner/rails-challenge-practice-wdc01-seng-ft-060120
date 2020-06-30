@@ -3,5 +3,6 @@ class Company < ApplicationRecord
   has_many :buildings, through: :offices
   has_many :employees
   accepts_nested_attributes_for :offices
+  accepts_nested_attributes_for :employees
    
 end
