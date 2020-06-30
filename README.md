@@ -18,7 +18,7 @@ Building:
 - country
 - address
 - rent_per_floor
-- number_of_floors
+- num_of_floors
 
 Office:
 

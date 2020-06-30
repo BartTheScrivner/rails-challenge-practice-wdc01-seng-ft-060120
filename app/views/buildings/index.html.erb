@@ -1,0 +1,12 @@
+<h1>WeWork Buildings</h1>
+
+<h2>Buildings</h2>
+<div><ul>
+<% @buildings.each do |b| %>
+  <li>
+  <%= link_to b.name, building_path(b.id) %>  
+  <%= "Floors Available: #{b.num_of_floors_available.join(", ")}" %>
+  
+  </li>
+  <% end %>
+</ul></div>

@@ -3,19 +3,19 @@ weworks = [
    country: "UK", 
    address: "131 Finsbury Pavement",
    rent_per_floor: 18000,
-   number_of_floors: 8
+   num_of_floors: 8
   }, 
   {name: "Chelsea HQ", 
    country: "US", 
    address: "29 West 28th Street",
    rent_per_floor: 20000,
-   number_of_floors: 20
+   num_of_floors: 20
   }, 
   {name: "Broadway", 
    country: "US", 
    address: "85 Broadway",
    rent_per_floor: 25000,
-   number_of_floors: 6
+   num_of_floors: 6
   }
 ]
 
@@ -57,7 +57,7 @@ end
 
 10.times do 
   random_building = Building.all.sample
-  random_building_floors_array = (1..random_building.number_of_floors).to_a
+  random_building_floors_array = (1..random_building.num_of_floors).to_a
   Office.create(
     company: Company.all.sample,
     building: random_building,

@@ -1,0 +1,13 @@
+<h1><%= @building.name %></h1>
+
+<h2>Companies</h2>
+<div><ul>
+  <% @building.companies.each do |company| %>
+
+    <li><%= company.name %></li>
+
+  <% end %>
+</ul></div>
+
+
+<h2>Total Rent Earned: <%= @building.total_rent_earned %></h2>

@@ -1,9 +1,11 @@
 class Building < ApplicationRecord
+  has_many :offices
+  has_many :companies, through: :offices
 
-  def number_of_floors_available
+  def num_of_floors_available
     # Will not work until relationships and schema are corretly setup
 
-    all_floors = Array(1..self.number_of_floors)
+    all_floors = Array(1..self.num_of_floors)
     self.offices.each do |office|
       all_floors.delete(office.floor)
     end
@@ -11,7 +13,11 @@ class Building < ApplicationRecord
   end
 
   def empty_offices
-    number_of_floors_available.map { |f| offices.build(floor: f) }
+    num_of_floors_available.map { |f| offices.build(floor: f) }
+  end
+
+  def total_rent_earned
+    self.rent_per_floor * self.companies.count
   end
 
 end
