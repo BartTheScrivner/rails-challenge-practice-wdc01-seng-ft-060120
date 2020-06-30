@@ -31,7 +31,7 @@ class CompaniesController < ApplicationController
 
   def company_params
     params.require(:company).permit(
-      :name
+      :name,
       offices_attributes: [
         :building_id,
         :company_id,
