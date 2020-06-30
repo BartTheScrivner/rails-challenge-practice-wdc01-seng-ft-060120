@@ -1,5 +1,10 @@
 <h1><%= @building.name %></h1>
 
+<h2>Details</h2>
+<h3><%= "Address: #{@building.address}, #{@building.country}" %></h3>
+<h3><%= "Rent: $#{@building.rent_per_floor} per floor" %></h3>
+<h3><%= "#{@building.num_of_floors} floors" %></h3>
+
 <h2>Companies</h2>
 <div><ul>
   <% @building.companies.each do |company| %>
@@ -11,3 +16,6 @@
 
 
 <h2>Total Rent Earned: <%= @building.total_rent_earned %></h2>
+
+<%= link_to "Back to Index", buildings_path %>
+<%= link_to "Edit Details", edit_building_path(@building) %>

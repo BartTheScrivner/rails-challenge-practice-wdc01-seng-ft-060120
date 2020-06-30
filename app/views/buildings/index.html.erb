@@ -6,7 +6,7 @@
   <li>
   <%= link_to b.name, building_path(b.id) %>  
   <%= "Floors Available: #{b.num_of_floors_available.join(", ")}" %>
-  
+  <%= link_to "Edit", edit_building_path(b.id) %>
   </li>
   <% end %>
 </ul></div>
