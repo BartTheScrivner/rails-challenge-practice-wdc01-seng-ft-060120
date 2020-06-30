@@ -16,7 +16,18 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.new(company_params)
-    @company.offices.build(company_params)
+    if @company.save
+      params[:company][:offices_attributes].each do |indexk, val|
+        val[:offices].each do |floors|
+          floors.each do |floor|
+            if floor != ""
+            Office.create(company_id: @company.id, building_id: val[:id], floor: floor)
+            end
+          end 
+        end 
+      end 
+    end 
+    redirect_to company_path(@company)
   end
 
   def edit
@@ -30,14 +41,7 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(
-      :name,
-      offices_attributes: [
-        :building_id,
-        :company_id,
-        :floor
-      ]
-    )
+    params.require(:company).permit(:name)
   end 
 
   def get_company
